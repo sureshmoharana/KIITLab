@@ -1,3 +1,5 @@
+//DFA for recognizing strings of language ab*
+
 #include<stdio.h>
 
 int main()
