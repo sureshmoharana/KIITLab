@@ -1,0 +1,22 @@
+%{
+#include<stdio.h>
+int c=0;
+%}
+let [a-zA-Z]
+spc " "
+nl  \n
+%%
+"/*".+"*/"      {c++; printf(" ");}  
+         
+"/*"({let}|{spc}|{nl}|\;|\(|\))*"*/"  {c++; printf(" ");}
+
+"//".+\n	{c++; printf(" ");}
+%%
+int main()
+{
+	yyin=fopen("input1.txt","r");
+	printf("Program without Comments:-\n");
+	yylex();
+	printf("Comments: %d\n",c);
+	return 0;
+}
