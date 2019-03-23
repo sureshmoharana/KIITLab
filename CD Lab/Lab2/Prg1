@@ -1,0 +1,16 @@
+%{
+#include<stdio.h>
+%}
+letter [a-zA-Z]
+digit [0-9]
+
+%%
+if|else|for   printf("kwd\n");
+{letter}({letter}|{digit})* printf("id\n");
+.+ printf("nid\n");
+
+%%
+void main()
+{
+ yylex();
+}
